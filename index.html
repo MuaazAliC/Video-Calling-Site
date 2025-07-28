@@ -3,29 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Calling </title>
-    <link rel="stylesheet" href="style.css">
+    <title>Video Call</title>
     <link rel="shortcut icon" href="img/Favicon.png" type="image/x-icon">
+   <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="main">
-        <div id="user">
-   
-    <div id="user_cam">
-      <video id="video" autoplay playsinline></video>
+        <div class="cam">
+            <video id="camera" autoplay playsinline></video>
+        </div>
+        <div class="input">
+                <input type="text" placeholder="Enter Room ID" required>
+               <a href="meeting room/call.html"> <button type="submit">Submit</button></a>
+           
+        </div>
     </div>
-    <button id="user_btn">Start/End</button>
-  </div>
-       <div id="chat">
-    <div id="chat_display"></div>
 
-    <div id="chat_input_area">
-      <input type="text" id="chat_input" placeholder="Enter text for Chatting">
-      <button id="Chat_btn">Send</button>
-    </div>
-  </div>
+    <script>
        
-    </div>
-   <script src="script.js"></script>
+        const video = document.getElementById('camera');
+
+        navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+            .then(stream => {
+                video.srcObject = stream;
+            })
+            .catch(err => {
+                console.error("Camera access denied:", err);
+            });
+    </script>
 </body>
 </html>
