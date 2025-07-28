@@ -52,8 +52,8 @@ body {
   width: 150px;
   height: 100px;
   position: absolute;
-  bottom: 500px;
-  right: 10px;
+  top: 10px;              /* ✅ aligned to top */
+  right: 10px;            /* ✅ aligned to right */
   border: 2px solid white;
   border-radius: 8px;
   cursor: pointer;
@@ -142,6 +142,7 @@ body {
   100% { opacity: 0; transform: translateY(-10px); }
 }
 
+/* ===================== RESPONSIVE ===================== */
 @media (max-width: 768px) {
   .main {
     flex-direction: column;
@@ -174,6 +175,7 @@ body {
     overflow-y: auto;
     z-index: 2;
     font-size: 1em;
+    padding: 0.5em;
   }
 
   .chat-message {
@@ -186,7 +188,8 @@ body {
     gap: 0.5em;
   }
 
-  #chat input, #chat button {
+  #chat input,
+  #chat button {
     width: 100%;
   }
 
@@ -199,10 +202,11 @@ body {
     font-size: 1em;
     padding: 0.5em 1.2em;
   }
+
   #video_small {
- 
-  bottom: 600px;
-  right: 10px;
- 
-}
+    width: 100px;
+    height: 70px;
+    top: 10px;
+    right: 10px;
+  }
 }
