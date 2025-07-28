@@ -11,28 +11,37 @@ body {
     font-family: sans-serif;
 }
 
-#user {
+.main {
     width: 100vw;
     height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+#user {
+    width: 70%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 3em;
     padding: 1em;
 }
 
 #user_cam {
-    width: 50%;
-    height: 50%;
+    width: 100%;
+    height: 90%;
     display: none;
+    position: relative;
 }
 
 #user_cam video {
     width: 100%;
     height: 100%;
-   
     border-radius: 10px;
+    object-fit: cover;
 }
 
 #user_btn {
@@ -46,6 +55,8 @@ body {
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     box-shadow: 0 4px 15px rgba(255, 64, 64, 0.4);
+    position: relative;
+    top: -2em;
 }
 
 #user_btn:hover {
@@ -54,20 +65,89 @@ body {
     box-shadow: 0 4px 20px rgba(163, 245, 42, 0.4);
 }
 
+#chat {
+    background-color: #000;
+    width: 24%;
+    height: 99%;
+    border: 3px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1em;
+    box-sizing: border-box;
+}
 
+#chat_display {
+    flex-grow: 1;
+    overflow-y: auto;
+    color: white;
+    margin-bottom: 1em;
+}
+
+.chat_message {
+    background-color: #1e1e1e;
+    padding: 8px 12px;
+    border-radius: 12px;
+    margin: 6px 0;
+    align-self: flex-end;
+    max-width: 90%;
+    word-wrap: break-word;
+}
+
+#chat_input_area {
+    display: flex;
+    gap: 10px;
+}
+
+#chat input {
+    width: 80%;
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+}
+
+#chat button {
+    width: 20%;
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+#chat button:hover {
+    background-color: #ddd;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    #user {
-        gap: 2em;
+    .main {
+        flex-direction: column;
+        height: auto;
+    }
+
+    #user, #chat {
+        width: 100%;
+        height: 50vh;
     }
 
     #user_cam {
-        width: 90%;
-        height: 40%;
+        width: 100%;
+        height: 500px;
     }
 
     #user_btn {
-        font-size: 1.1em;
-        padding: 0.5em 1.5em;
+        font-size: 1em;
+        padding: 0.5em 1.2em;
+        top: -1em;
+    }
+
+    #chat_input_area {
+        flex-direction: column;
+    }
+
+    #chat input, #chat button {
+        width: 100%;
     }
 }
-
